@@ -1,0 +1,209 @@
+﻿<Page
+    x:Class="IzmirEshot.Views.MoreView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IzmirEshot.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/AutoSuggestBoxStyle1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid.Background>
+            <SolidColorBrush Color="#262e41"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.Background>
+                <SolidColorBrush Color="#262e41"/>
+            </Grid.Background>
+
+            <TextBlock Text="Fazlası" Foreground="White" FontSize="19" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.Background>
+                <SolidColorBrush Color="#f1f0f6"/>
+            </Grid.Background>
+
+            <ScrollViewer VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" AllowDrop="False" BringIntoViewOnFocusChange="True" IsHoldingEnabled="True">
+              
+                <StackPanel Background="#ffffff" VerticalAlignment="Top">
+
+                    <Grid>
+
+                        <Grid.Background>
+                            <SolidColorBrush Color="#f1f0f6"/>
+                        </Grid.Background>
+
+                        <TextBlock Text="Hat / Durak İşlemleri" Margin="20,8,0,8" Foreground="#262e41" Opacity="0.8" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                        <Rectangle Fill="#cac9cf" Height="0.6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+
+                    </Grid>
+
+                    <Grid x:Name="metroButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/metro.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="Metro Bağlantılı Hatlar" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#cac9cf" Margin="0,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid x:Name="izbanButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/izban.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="İZBAN Bağlantılı Hatlar" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#cac9cf" Margin="0,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid x:Name="vapurButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/vapur.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="Vapur Bağlantılı Hatlar" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#cac9cf" Margin="0,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid x:Name="otogarButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/otogar.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="Otogar Bağlantılı Hatlar" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#cac9cf" Margin="0,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid x:Name="havalimaniButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/havaalanı.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="Havalimanı Seferleri" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#ffffff" Margin="0,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid>
+
+                        <Grid.Background>
+                            <SolidColorBrush Color="#f1f0f6"/>
+                        </Grid.Background>
+
+                        <Rectangle Fill="#cac9cf" Height="0.6" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+                        <TextBlock Text="Diğer" Margin="20,8,0,8" Foreground="#262e41" Opacity="0.8" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                        <Rectangle Fill="#cac9cf" Height="0.6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+
+                    </Grid>
+
+                    <Grid x:Name="geribildirimButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/feedback.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="Mobil Geri Bildirim" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#cac9cf" Margin="0,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid x:Name="hakkindaButton" Tapped="button_Tapped">
+
+                        <StackPanel Margin="20,15,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image  Source="ms-appx:///Assets/Icons/hakkinda.png" Height="25" Margin="0,0,10,0" Stretch="Uniform" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="Hakkında" FontSize="17" Opacity="0.8" TextTrimming="CharacterEllipsis" FontWeight="Normal" Foreground="#262e41" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+
+                            <Rectangle Fill="#cac9cf" Margin="-20,15,0,0" Height="0.6" HorizontalAlignment="Stretch"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </StackPanel>
+                
+            </ScrollViewer>
+
+        </Grid>
+
+    </Grid>
+
+</Page>

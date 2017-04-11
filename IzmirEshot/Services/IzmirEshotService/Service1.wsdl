@@ -1,0 +1,2449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Bisim" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzmirMetro" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Izban" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Him" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.OnemliTelefonlar" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.EsrefpasaHastanesi" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KulturSanat" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBHaber" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBDuyurular" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Kullanici" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KentKameralari" />
+      <xs:element name="HatlariGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatlariGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="HatlariGetirResult" nillable="true" type="q1:ArrayOfHat" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatDuraklariniGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eshotHatId" type="xs:int" />
+            <xs:element minOccurs="0" name="yon" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatDuraklariniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="HatDuraklariniGetirResult" nillable="true" type="q2:ArrayOfDurak" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatDuraklariniGuzergahBaslangicBitisiGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eshotHatId" type="xs:int" />
+            <xs:element minOccurs="0" name="yon" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatDuraklariniGuzergahBaslangicBitisiGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="HatDuraklariniGuzergahBaslangicBitisiGetirResult" nillable="true" type="q3:HatDurakGuzergahBaslangicBitis" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TarifeleriGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dilId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TarifeleriGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="TarifeleriGetirResult" nillable="true" type="q4:ArrayOfTarife" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HareketSaatleriniHattaYoneTarifeyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eshotHatId" type="xs:int" />
+            <xs:element minOccurs="0" name="yon" type="xs:int" />
+            <xs:element minOccurs="0" name="tarifeId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HareketSaatleriniHattaYoneTarifeyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HareketSaatleriniHattaYoneTarifeyeGoreGetirResult" nillable="true" type="q5:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HareketSaatleriniHattaTarifeyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eshotHatId" type="xs:int" />
+            <xs:element minOccurs="0" name="tarifeId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HareketSaatleriniHattaTarifeyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="HareketSaatleriniHattaTarifeyeGoreGetirResult" nillable="true" type="q6:ArrayOfHareketSaati" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DurakAra">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="anahtarKelime" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DurakAraResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="DurakAraResult" nillable="true" type="q7:ArrayOfDurak" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatAra">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="anahtarKelime" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HatAraResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="HatAraResult" nillable="true" type="q8:ArrayOfHat" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="YaklasanOtobusleriDuragaGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="durakId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="YaklasanOtobusleriDuragaGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="YaklasanOtobusleriDuragaGoreGetirResult" nillable="true" type="q9:ArrayOfDuragaYaklasanOtobus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NoktayaEnYakinDuraklariGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="x" type="xs:double" />
+            <xs:element minOccurs="0" name="y" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NoktayaEnYakinDuraklariGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="NoktayaEnYakinDuraklariGetirResult" nillable="true" type="q10:ArrayOfDurak" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BisimIstasyonlariGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BisimIstasyonlariGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Bisim" minOccurs="0" name="BisimIstasyonlariGetirResult" nillable="true" type="q11:ArrayOfBisimIstasyon" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MetroSeferSaatleriniTarifeyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="gunTipId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MetroSeferSaatleriniTarifeyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzmirMetro" minOccurs="0" name="MetroSeferSaatleriniTarifeyeGoreGetirResult" nillable="true" type="q12:ArrayOfMetroSeferSaat" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MetroGunTipleriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MetroGunTipleriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzmirMetro" minOccurs="0" name="MetroGunTipleriniGetirResult" nillable="true" type="q13:ArrayOfMetroGunTipi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MetroIstasyonlariniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MetroIstasyonlariniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzmirMetro" minOccurs="0" name="MetroIstasyonlariniGetirResult" nillable="true" type="q14:ArrayOfMetroIstasyon" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzbanIstasyonlariniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzbanIstasyonlariniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Izban" minOccurs="0" name="IzbanIstasyonlariniGetirResult" nillable="true" type="q15:ArrayOfIzbanIstasyon" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzbanSeferSaatleriniIstasyonaGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="baslangicIstasyonId" type="xs:int" />
+            <xs:element minOccurs="0" name="bitisIstasyonId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzbanSeferSaatleriniIstasyonaGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Izban" minOccurs="0" name="IzbanSeferSaatleriniIstasyonaGoreGetirResult" nillable="true" type="q16:IzbanSeferSaatleri" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurDonemleriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurDonemleriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" minOccurs="0" name="VapurDonemleriniGetirResult" nillable="true" type="q17:ArrayOfVapurDonemi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurGunTipleriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurGunTipleriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" minOccurs="0" name="VapurGunTipleriniGetirResult" nillable="true" type="q18:ArrayOfVapurGunTipi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurIskeleleriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurIskeleleriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" minOccurs="0" name="VapurIskeleleriniGetirResult" nillable="true" type="q19:ArrayOfVapurIskelesi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurSeferleriniIskeleyeTarifeyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="baslangicIskeleId" type="xs:int" />
+            <xs:element minOccurs="0" name="bitisIskeleId" type="xs:int" />
+            <xs:element minOccurs="0" name="donemId" type="xs:int" />
+            <xs:element minOccurs="0" name="gunTipId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VapurSeferleriniIskeleyeTarifeyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" minOccurs="0" name="VapurSeferleriniIskeleyeTarifeyeGoreGetirResult" nillable="true" type="q20:VapurSeferSaatleri" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ArabaliVapurSeferGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ArabaliVapurSeferGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" minOccurs="0" name="ArabaliVapurSeferGetirResult" nillable="true" type="q21:ArabaliVapurSefer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzsuPlanliSuKesintileriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzsuPlanliSuKesintileriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" minOccurs="0" name="IzsuPlanliSuKesintileriniGetirResult" nillable="true" type="q22:ArrayOfPlanliSuKesintisi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzsuSuKesintiIlceleriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzsuSuKesintiIlceleriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" minOccurs="0" name="IzsuSuKesintiIlceleriniGetirResult" nillable="true" type="q23:ArrayOfSuKesintiIlcesi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzsuArizaKaynakliSuKesintileriniGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ilceKodu" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IzsuArizaKaynakliSuKesintileriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" minOccurs="0" name="IzsuArizaKaynakliSuKesintileriniGetirResult" nillable="true" type="q24:ArrayOfArizaKaynakliSuKesintisi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeneIzsuSuKesintiIlceleriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeneIzsuSuKesintiIlceleriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" minOccurs="0" name="DeneIzsuSuKesintiIlceleriniGetirResult" nillable="true" type="q25:ArrayOfSuKesintiIlcesi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HimKaydiniTakipNoGuvenlikKodunaGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="takipNo" type="xs:int" />
+            <xs:element minOccurs="0" name="guvenlikKodu" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HimKaydiniTakipNoGuvenlikKodunaGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Him" minOccurs="0" name="HimKaydiniTakipNoGuvenlikKodunaGoreGetirResult" nillable="true" type="q26:HimKayit" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IletisimBilgileriniGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dilId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IletisimBilgileriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Him" minOccurs="0" name="IletisimBilgileriniGetirResult" nillable="true" type="q27:ArrayOfIletisim" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnemliTelefonKategorileriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnemliTelefonKategorileriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.OnemliTelefonlar" minOccurs="0" name="OnemliTelefonKategorileriniGetirResult" nillable="true" type="q28:ArrayOfAnaKategori" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnemliTelefonlariKategoriyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="anaKategoriId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnemliTelefonlariKategoriyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.OnemliTelefonlar" minOccurs="0" name="OnemliTelefonlariKategoriyeGoreGetirResult" nillable="true" type="q29:ArrayOfAltKategori" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnemliTelefonAra">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="anahtarKelime" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnemliTelefonAraResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.OnemliTelefonlar" minOccurs="0" name="OnemliTelefonAraResult" nillable="true" type="q30:ArrayOfOnemliTelefon" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BolgeleriGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BolgeleriGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" minOccurs="0" name="BolgeleriGetirResult" nillable="true" type="q31:ArrayOfNobetciEczaneBolgesi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NobetciEczaneleriBolgeyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="bolgeId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NobetciEczaneleriBolgeyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" minOccurs="0" name="NobetciEczaneleriBolgeyeGoreGetirResult" nillable="true" type="q32:ArrayOfNobetciEczane" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TumNobetciEczaneleriGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TumNobetciEczaneleriGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" minOccurs="0" name="TumNobetciEczaneleriGetirResult" nillable="true" type="q33:ArrayOfTumNobetciEczaneler" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NoktayaEnYakinNobetciEczaneyiGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="x" type="xs:double" />
+            <xs:element minOccurs="0" name="y" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NoktayaEnYakinNobetciEczaneyiGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" minOccurs="0" name="NoktayaEnYakinNobetciEczaneyiGetirResult" nillable="true" type="q34:ArrayOfNobetciEczane" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EsrefpasaTahlilSonuclariniGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TcNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="HastaNo" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EsrefpasaTahlilSonuclariniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.EsrefpasaHastanesi" minOccurs="0" name="EsrefpasaTahlilSonuclariniGetirResult" nillable="true" type="q35:Hasta" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EsrefpasaTahlilSonucunuGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="hastaNo" type="xs:long" />
+            <xs:element minOccurs="0" name="protokolNo" type="xs:long" />
+            <xs:element minOccurs="0" name="labNo" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EsrefpasaTahlilSonucunuGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.EsrefpasaHastanesi" minOccurs="0" name="EsrefpasaTahlilSonucunuGetirResult" nillable="true" type="q36:ArrayOfTahlilSonuc" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EtkinlikleriGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EtkinlikleriGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KulturSanat" minOccurs="0" name="EtkinlikleriGetirResult" nillable="true" type="q37:ArrayOfEtkinlikOzet" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EtkinlikGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="etkinlikId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EtkinlikGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KulturSanat" minOccurs="0" name="EtkinlikGetirResult" nillable="true" type="q38:Etkinlik" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UlasimKartiKaydet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kullaniciId" type="xs:int" />
+            <xs:element minOccurs="0" name="adi" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="bakiye" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="numarasi" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UlasimKartiKaydetResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullanicininUlasimKartlariniGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kullaniciId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullanicininUlasimKartlariniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" minOccurs="0" name="KullanicininUlasimKartlariniGetirResult" nillable="true" type="q39:ArrayOfUlasimKarti" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UlasimKartiSil">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kullaniciId" type="xs:int" />
+            <xs:element minOccurs="0" name="kartNumarasi" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UlasimKartiSilResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UlasimKartiBakiyesiGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kartNumarasi" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UlasimKartiBakiyesiGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UlasimKartiBakiyesiGetirResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HaberleriGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dilId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HaberleriGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBHaber" minOccurs="0" name="HaberleriGetirResult" nillable="true" type="q40:ArrayOfHaberOzet" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HaberGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="haberId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HaberGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBHaber" minOccurs="0" name="HaberGetirResult" nillable="true" type="q41:Haber" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DuyuruKategorileriniGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DuyuruKategorileriniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBDuyurular" minOccurs="0" name="DuyuruKategorileriniGetirResult" nillable="true" type="q42:ArrayOfDuyuruKategori" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DuyurulariKategoriyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kategoriId" type="xs:int" />
+            <xs:element minOccurs="0" name="dilId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DuyurulariKategoriyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBDuyurular" minOccurs="0" name="DuyurulariKategoriyeGoreGetirResult" nillable="true" type="q43:ArrayOfDuyuruOzet" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DuyuruyuKategoriyeGoreGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="duyuruId" type="xs:int" />
+            <xs:element minOccurs="0" name="kategoriId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DuyuruyuKategoriyeGoreGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBDuyurular" minOccurs="0" name="DuyuruyuKategoriyeGoreGetirResult" nillable="true" type="q44:Duyuru" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BaskanOzgecmisMetniGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dilId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BaskanOzgecmisMetniGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BaskanOzgecmisMetniGetirResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciKaydet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tokenId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="isletimSistemiTipId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciKaydetResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciIptalEt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kullaniciId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciIptalEtResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tokenId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Kullanici" minOccurs="0" name="KullaniciGetirResult" nillable="true" type="q45:Kullanici" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KentKameralariGetir">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KentKameralariGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KentKameralari" minOccurs="0" name="KentKameralariGetirResult" nillable="true" type="q46:ArrayOfKentKameralari" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Eshot" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfHat">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Hat" nillable="true" type="tns:Hat" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfHat" nillable="true" type="tns:ArrayOfHat" />
+      <xs:complexType name="Hat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Donus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gidis" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Numara" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Hat" nillable="true" type="tns:Hat" />
+      <xs:complexType name="ArrayOfDurak">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Durak" nillable="true" type="tns:Durak" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDurak" nillable="true" type="tns:ArrayOfDurak" />
+      <xs:complexType name="Durak">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GecenHatNumaralari" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KoorX" type="xs:decimal" />
+          <xs:element minOccurs="0" name="KoorY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Mesafe" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Durak" nillable="true" type="tns:Durak" />
+      <xs:complexType name="HatDurakGuzergahBaslangicBitis">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Duraklar" nillable="true" type="tns:ArrayOfDurak" />
+          <xs:element minOccurs="0" name="GuzergahBas" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GuzergahBit" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HatDurakGuzergahBaslangicBitis" nillable="true" type="tns:HatDurakGuzergahBaslangicBitis" />
+      <xs:complexType name="ArrayOfTarife">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Tarife" nillable="true" type="tns:Tarife" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTarife" nillable="true" type="tns:ArrayOfTarife" />
+      <xs:complexType name="Tarife">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TarifeId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Tarife" nillable="true" type="tns:Tarife" />
+      <xs:complexType name="ArrayOfHareketSaati">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="HareketSaati" nillable="true" type="tns:HareketSaati" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfHareketSaati" nillable="true" type="tns:ArrayOfHareketSaati" />
+      <xs:complexType name="HareketSaati">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Donus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gidis" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HareketSaati" nillable="true" type="tns:HareketSaati" />
+      <xs:complexType name="ArrayOfDuragaYaklasanOtobus">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DuragaYaklasanOtobus" nillable="true" type="tns:DuragaYaklasanOtobus" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDuragaYaklasanOtobus" nillable="true" type="tns:ArrayOfDuragaYaklasanOtobus" />
+      <xs:complexType name="DuragaYaklasanOtobus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DurakAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HatAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HatNumarasi" type="xs:int" />
+          <xs:element minOccurs="0" name="HattinYonu" type="xs:int" />
+          <xs:element minOccurs="0" name="KalanDakika" type="xs:int" />
+          <xs:element minOccurs="0" name="KalanDurakSayisi" type="xs:int" />
+          <xs:element minOccurs="0" name="SistemTarihi" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DuragaYaklasanOtobus" nillable="true" type="tns:DuragaYaklasanOtobus" />
+      <xs:complexType name="ArrayOfUlasimKarti">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UlasimKarti" nillable="true" type="tns:UlasimKarti" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUlasimKarti" nillable="true" type="tns:ArrayOfUlasimKarti" />
+      <xs:complexType name="UlasimKarti">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Bakiye" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KullaniciId" type="xs:int" />
+          <xs:element minOccurs="0" name="Numarasi" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UlasimKarti" nillable="true" type="tns:UlasimKarti" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Bisim" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Bisim" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfBisimIstasyon">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BisimIstasyon" nillable="true" type="tns:BisimIstasyon" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfBisimIstasyon" nillable="true" type="tns:ArrayOfBisimIstasyon" />
+      <xs:complexType name="BisimIstasyon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BisikletSayisi" type="xs:int" />
+          <xs:element minOccurs="0" name="BosParkYeri" type="xs:int" />
+          <xs:element minOccurs="0" name="Durumu" type="xs:int" />
+          <xs:element minOccurs="0" name="IstasyonID" type="xs:int" />
+          <xs:element minOccurs="0" name="Istasyonadi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Kapasite" type="xs:int" />
+          <xs:element minOccurs="0" name="KoordinatX" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KoordinatY" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BisimIstasyon" nillable="true" type="tns:BisimIstasyon" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzmirMetro" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzmirMetro" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfMetroSeferSaat">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MetroSeferSaat" nillable="true" type="tns:MetroSeferSaat" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfMetroSeferSaat" nillable="true" type="tns:ArrayOfMetroSeferSaat" />
+      <xs:complexType name="MetroSeferSaat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aralik" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SeferSaati" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MetroSeferSaat" nillable="true" type="tns:MetroSeferSaat" />
+      <xs:complexType name="ArrayOfMetroGunTipi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MetroGunTipi" nillable="true" type="tns:MetroGunTipi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfMetroGunTipi" nillable="true" type="tns:ArrayOfMetroGunTipi" />
+      <xs:complexType name="MetroGunTipi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MetroGunTipi" nillable="true" type="tns:MetroGunTipi" />
+      <xs:complexType name="ArrayOfMetroIstasyon">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MetroIstasyon" nillable="true" type="tns:MetroIstasyon" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfMetroIstasyon" nillable="true" type="tns:ArrayOfMetroIstasyon" />
+      <xs:complexType name="MetroIstasyon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KoorX" type="xs:decimal" />
+          <xs:element minOccurs="0" name="KoorY" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MetroIstasyon" nillable="true" type="tns:MetroIstasyon" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Izban" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Izban" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfIzbanIstasyon">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IzbanIstasyon" nillable="true" type="tns:IzbanIstasyon" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIzbanIstasyon" nillable="true" type="tns:ArrayOfIzbanIstasyon" />
+      <xs:complexType name="IzbanIstasyon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KoorX" type="xs:decimal" />
+          <xs:element minOccurs="0" name="KoorY" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IzbanIstasyon" nillable="true" type="tns:IzbanIstasyon" />
+      <xs:complexType name="IzbanSeferSaatleri">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaslangicIstasyonAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaslangicIstasyonId" type="xs:int" />
+          <xs:element minOccurs="0" name="BitisIstasyonAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BitisIstasyonId" type="xs:int" />
+          <xs:element minOccurs="0" name="KalkisVarisSaatleri" nillable="true" type="tns:ArrayOfIzbanSeferSaati" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IzbanSeferSaatleri" nillable="true" type="tns:IzbanSeferSaatleri" />
+      <xs:complexType name="ArrayOfIzbanSeferSaati">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IzbanSeferSaati" nillable="true" type="tns:IzbanSeferSaati" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIzbanSeferSaati" nillable="true" type="tns:ArrayOfIzbanSeferSaati" />
+      <xs:complexType name="IzbanSeferSaati">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KalkisSaati" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VarisSaati" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IzbanSeferSaati" nillable="true" type="tns:IzbanSeferSaati" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzDeniz" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="ArrayOfVapurDonemi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="VapurDonemi" nillable="true" type="tns:VapurDonemi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfVapurDonemi" nillable="true" type="tns:ArrayOfVapurDonemi" />
+      <xs:complexType name="VapurDonemi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VapurDonemi" nillable="true" type="tns:VapurDonemi" />
+      <xs:complexType name="ArrayOfVapurGunTipi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="VapurGunTipi" nillable="true" type="tns:VapurGunTipi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfVapurGunTipi" nillable="true" type="tns:ArrayOfVapurGunTipi" />
+      <xs:complexType name="VapurGunTipi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VapurGunTipi" nillable="true" type="tns:VapurGunTipi" />
+      <xs:complexType name="ArrayOfVapurIskelesi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="VapurIskelesi" nillable="true" type="tns:VapurIskelesi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfVapurIskelesi" nillable="true" type="tns:ArrayOfVapurIskelesi" />
+      <xs:complexType name="VapurIskelesi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KoorX" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KoorY" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VapurIskelesi" nillable="true" type="tns:VapurIskelesi" />
+      <xs:complexType name="VapurSeferSaatleri">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Aciklamalar" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="BaslangicIskeleAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BaslangicIskeleId" type="xs:int" />
+          <xs:element minOccurs="0" name="BitisIskeleAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BitisIskeleId" type="xs:int" />
+          <xs:element minOccurs="0" name="KalkisVarisSaatleri" nillable="true" type="tns:ArrayOfVapurSeferSaati" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VapurSeferSaatleri" nillable="true" type="tns:VapurSeferSaatleri" />
+      <xs:complexType name="ArrayOfVapurSeferSaati">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="VapurSeferSaati" nillable="true" type="tns:VapurSeferSaati" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfVapurSeferSaati" nillable="true" type="tns:ArrayOfVapurSeferSaati" />
+      <xs:complexType name="VapurSeferSaati">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KalkisSaati" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VarisSaati" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VapurSeferSaati" nillable="true" type="tns:VapurSeferSaati" />
+      <xs:complexType name="ArabaliVapurSefer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Alan1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Alan2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Alan3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KalanKontenjan" type="xs:int" />
+          <xs:element minOccurs="0" name="Kontenjan" type="xs:int" />
+          <xs:element minOccurs="0" name="SeferId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SeferSaati" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SeferTarihi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SonrakiSeferSaati" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArabaliVapurSefer" nillable="true" type="tns:ArabaliVapurSefer" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IzSu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfPlanliSuKesintisi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanliSuKesintisi" nillable="true" type="tns:PlanliSuKesintisi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPlanliSuKesintisi" nillable="true" type="tns:ArrayOfPlanliSuKesintisi" />
+      <xs:complexType name="PlanliSuKesintisi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Kesinti" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Semt" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PlanliSuKesintisi" nillable="true" type="tns:PlanliSuKesintisi" />
+      <xs:complexType name="ArrayOfSuKesintiIlcesi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SuKesintiIlcesi" nillable="true" type="tns:SuKesintiIlcesi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSuKesintiIlcesi" nillable="true" type="tns:ArrayOfSuKesintiIlcesi" />
+      <xs:complexType name="SuKesintiIlcesi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Kodu" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SuKesintiIlcesi" nillable="true" type="tns:SuKesintiIlcesi" />
+      <xs:complexType name="ArrayOfArizaKaynakliSuKesintisi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ArizaKaynakliSuKesintisi" nillable="true" type="tns:ArizaKaynakliSuKesintisi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfArizaKaynakliSuKesintisi" nillable="true" type="tns:ArrayOfArizaKaynakliSuKesintisi" />
+      <xs:complexType name="ArizaKaynakliSuKesintisi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Birim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Durum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ilce" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KesintiSuresi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KesintiTipi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mahalle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArizaKaynakliSuKesintisi" nillable="true" type="tns:ArizaKaynakliSuKesintisi" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Him" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Him" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="HimKayit">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BasvuruSaati" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BasvuruTarihi" type="xs:dateTime" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Cevaplar" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Durum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Istek" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TakipNo" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HimKayit" nillable="true" type="tns:HimKayit" />
+      <xs:complexType name="ArrayOfIletisim">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Iletisim" nillable="true" type="tns:Iletisim" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIletisim" nillable="true" type="tns:ArrayOfIletisim" />
+      <xs:complexType name="Iletisim">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Baslik" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Eposta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Faks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Iletisim" nillable="true" type="tns:Iletisim" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.OnemliTelefonlar" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.OnemliTelefonlar" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfAnaKategori">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AnaKategori" nillable="true" type="tns:AnaKategori" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAnaKategori" nillable="true" type="tns:ArrayOfAnaKategori" />
+      <xs:complexType name="AnaKategori">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Sira" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AnaKategori" nillable="true" type="tns:AnaKategori" />
+      <xs:complexType name="ArrayOfAltKategori">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AltKategori" nillable="true" type="tns:AltKategori" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAltKategori" nillable="true" type="tns:ArrayOfAltKategori" />
+      <xs:complexType name="AltKategori">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="OnemliTelefonlar" nillable="true" type="tns:ArrayOfOnemliTelefon" />
+          <xs:element minOccurs="0" name="Sira" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AltKategori" nillable="true" type="tns:AltKategori" />
+      <xs:complexType name="ArrayOfOnemliTelefon">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OnemliTelefon" nillable="true" type="tns:OnemliTelefon" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOnemliTelefon" nillable="true" type="tns:ArrayOfOnemliTelefon" />
+      <xs:complexType name="OnemliTelefon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OnemliTelefon" nillable="true" type="tns:OnemliTelefon" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.NobetciEczane" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfNobetciEczaneBolgesi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NobetciEczaneBolgesi" nillable="true" type="tns:NobetciEczaneBolgesi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfNobetciEczaneBolgesi" nillable="true" type="tns:ArrayOfNobetciEczaneBolgesi" />
+      <xs:complexType name="NobetciEczaneBolgesi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NobetciEczaneBolgesi" nillable="true" type="tns:NobetciEczaneBolgesi" />
+      <xs:complexType name="ArrayOfNobetciEczane">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NobetciEczane" nillable="true" type="tns:NobetciEczane" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfNobetciEczane" nillable="true" type="tns:ArrayOfNobetciEczane" />
+      <xs:complexType name="NobetciEczane">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BolgeAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BolgeId" type="xs:int" />
+          <xs:element minOccurs="0" name="EngelliDestegiVarMi" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KoorX" type="xs:decimal" />
+          <xs:element minOccurs="0" name="KoorY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UzaklikMetre" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NobetciEczane" nillable="true" type="tns:NobetciEczane" />
+      <xs:complexType name="ArrayOfTumNobetciEczaneler">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TumNobetciEczaneler" nillable="true" type="tns:TumNobetciEczaneler" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTumNobetciEczaneler" nillable="true" type="tns:ArrayOfTumNobetciEczaneler" />
+      <xs:complexType name="TumNobetciEczaneler">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BolgeAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BolgeId" type="xs:int" />
+          <xs:element minOccurs="0" name="EngelliDestegiVarMi" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KoorX" type="xs:decimal" />
+          <xs:element minOccurs="0" name="KoorY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TumNobetciEczaneler" nillable="true" type="tns:TumNobetciEczaneler" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.EsrefpasaHastanesi" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.EsrefpasaHastanesi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Hasta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HastaNo" type="xs:long" />
+          <xs:element minOccurs="0" name="Tahliller" nillable="true" type="tns:ArrayOfTahlil" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Hasta" nillable="true" type="tns:Hasta" />
+      <xs:complexType name="ArrayOfTahlil">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Tahlil" nillable="true" type="tns:Tahlil" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTahlil" nillable="true" type="tns:ArrayOfTahlil" />
+      <xs:complexType name="Tahlil">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IslemTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LabNo" type="xs:int" />
+          <xs:element minOccurs="0" name="ProtokolNo" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Tahlil" nillable="true" type="tns:Tahlil" />
+      <xs:complexType name="ArrayOfTahlilSonuc">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TahlilSonuc" nillable="true" type="tns:TahlilSonuc" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTahlilSonuc" nillable="true" type="tns:ArrayOfTahlilSonuc" />
+      <xs:complexType name="TahlilSonuc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Birimi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DegerBaslangic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DegerBitis" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IslemTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ParametreAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sonuc" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TahlilSonuc" nillable="true" type="tns:TahlilSonuc" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KulturSanat" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KulturSanat" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfEtkinlikOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EtkinlikOzet" nillable="true" type="tns:EtkinlikOzet" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfEtkinlikOzet" nillable="true" type="tns:ArrayOfEtkinlikOzet" />
+      <xs:complexType name="EtkinlikOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KisaAciklama" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KucukAfis" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tur" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EtkinlikOzet" nillable="true" type="tns:EtkinlikOzet" />
+      <xs:complexType name="Etkinlik">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AciklamaOzeti" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EtkinlikMerkezi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SeasListesi" nillable="true" type="tns:ArrayOfSeans" />
+          <xs:element minOccurs="0" name="Tur" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Etkinlik" nillable="true" type="tns:Etkinlik" />
+      <xs:complexType name="ArrayOfSeans">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Seans" nillable="true" type="tns:Seans" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSeans" nillable="true" type="tns:ArrayOfSeans" />
+      <xs:complexType name="Seans">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BiletSatisAciklama" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BiletSatisLinki" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SatisaSunusTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SeansBaslangicTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SeansBitisTarihi" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Seans" nillable="true" type="tns:Seans" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBHaber" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBHaber" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfHaberOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="HaberOzet" nillable="true" type="tns:HaberOzet" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfHaberOzet" nillable="true" type="tns:ArrayOfHaberOzet" />
+      <xs:complexType name="HaberOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Baslik" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Ozet" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tarih" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="HaberOzet" nillable="true" type="tns:HaberOzet" />
+      <xs:complexType name="Haber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ayrinti" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Baslik" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tarih" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Haber" nillable="true" type="tns:Haber" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBDuyurular" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.IBBDuyurular" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfDuyuruKategori">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DuyuruKategori" nillable="true" type="tns:DuyuruKategori" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDuyuruKategori" nillable="true" type="tns:ArrayOfDuyuruKategori" />
+      <xs:complexType name="DuyuruKategori">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DuyuruKategori" nillable="true" type="tns:DuyuruKategori" />
+      <xs:complexType name="ArrayOfDuyuruOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DuyuruOzet" nillable="true" type="tns:DuyuruOzet" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDuyuruOzet" nillable="true" type="tns:ArrayOfDuyuruOzet" />
+      <xs:complexType name="DuyuruOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KategoriId" type="xs:int" />
+          <xs:element minOccurs="0" name="Ozet" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tarih" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DuyuruOzet" nillable="true" type="tns:DuyuruOzet" />
+      <xs:complexType name="Duyuru">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ayrinti" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Baslik" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tarih" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Duyuru" nillable="true" type="tns:Duyuru" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Kullanici" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.Kullanici" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Kullanici">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsletimSistemiTipi" type="xs:int" />
+          <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Kullanici" nillable="true" type="tns:Kullanici" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KentKameralari" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MobilServis.DataContracts.KentKameralari" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfKentKameralari">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="KentKameralari" nillable="true" type="tns:KentKameralari" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfKentKameralari" nillable="true" type="tns:ArrayOfKentKameralari" />
+      <xs:complexType name="KentKameralari">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FotografUrl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KameraAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KameraID" type="xs:int" />
+          <xs:element minOccurs="0" name="MobilStreamUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="KentKameralari" nillable="true" type="tns:KentKameralari" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_HatlariGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HatlariGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatlariGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HatlariGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatDuraklariniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HatDuraklariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatDuraklariniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HatDuraklariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatDuraklariniGuzergahBaslangicBitisiGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HatDuraklariniGuzergahBaslangicBitisiGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatDuraklariniGuzergahBaslangicBitisiGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HatDuraklariniGuzergahBaslangicBitisiGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TarifeleriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:TarifeleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TarifeleriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TarifeleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HareketSaatleriniHattaYoneTarifeyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HareketSaatleriniHattaYoneTarifeyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HareketSaatleriniHattaYoneTarifeyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HareketSaatleriniHattaYoneTarifeyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HareketSaatleriniHattaTarifeyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HareketSaatleriniHattaTarifeyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HareketSaatleriniHattaTarifeyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HareketSaatleriniHattaTarifeyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DurakAra_InputMessage">
+    <wsdl:part name="parameters" element="tns:DurakAra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DurakAra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DurakAraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatAra_InputMessage">
+    <wsdl:part name="parameters" element="tns:HatAra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HatAra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HatAraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_YaklasanOtobusleriDuragaGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:YaklasanOtobusleriDuragaGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_YaklasanOtobusleriDuragaGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:YaklasanOtobusleriDuragaGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NoktayaEnYakinDuraklariGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:NoktayaEnYakinDuraklariGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NoktayaEnYakinDuraklariGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NoktayaEnYakinDuraklariGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_BisimIstasyonlariGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:BisimIstasyonlariGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_BisimIstasyonlariGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BisimIstasyonlariGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetroSeferSaatleriniTarifeyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetroSeferSaatleriniTarifeyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetroSeferSaatleriniTarifeyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetroSeferSaatleriniTarifeyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetroGunTipleriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetroGunTipleriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetroGunTipleriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetroGunTipleriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetroIstasyonlariniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetroIstasyonlariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetroIstasyonlariniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetroIstasyonlariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzbanIstasyonlariniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:IzbanIstasyonlariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzbanIstasyonlariniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IzbanIstasyonlariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzbanSeferSaatleriniIstasyonaGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:IzbanSeferSaatleriniIstasyonaGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzbanSeferSaatleriniIstasyonaGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IzbanSeferSaatleriniIstasyonaGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurDonemleriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:VapurDonemleriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurDonemleriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VapurDonemleriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurGunTipleriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:VapurGunTipleriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurGunTipleriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VapurGunTipleriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurIskeleleriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:VapurIskeleleriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurIskeleleriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VapurIskeleleriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurSeferleriniIskeleyeTarifeyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:VapurSeferleriniIskeleyeTarifeyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VapurSeferleriniIskeleyeTarifeyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VapurSeferleriniIskeleyeTarifeyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ArabaliVapurSeferGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:ArabaliVapurSeferGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ArabaliVapurSeferGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ArabaliVapurSeferGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzsuPlanliSuKesintileriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:IzsuPlanliSuKesintileriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzsuPlanliSuKesintileriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IzsuPlanliSuKesintileriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzsuSuKesintiIlceleriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:IzsuSuKesintiIlceleriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzsuSuKesintiIlceleriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IzsuSuKesintiIlceleriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzsuArizaKaynakliSuKesintileriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:IzsuArizaKaynakliSuKesintileriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IzsuArizaKaynakliSuKesintileriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IzsuArizaKaynakliSuKesintileriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeneIzsuSuKesintiIlceleriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeneIzsuSuKesintiIlceleriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeneIzsuSuKesintiIlceleriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeneIzsuSuKesintiIlceleriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HimKaydiniTakipNoGuvenlikKodunaGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HimKaydiniTakipNoGuvenlikKodunaGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HimKaydiniTakipNoGuvenlikKodunaGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HimKaydiniTakipNoGuvenlikKodunaGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IletisimBilgileriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:IletisimBilgileriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IletisimBilgileriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IletisimBilgileriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnemliTelefonKategorileriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnemliTelefonKategorileriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnemliTelefonKategorileriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnemliTelefonKategorileriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnemliTelefonlariKategoriyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnemliTelefonlariKategoriyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnemliTelefonlariKategoriyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnemliTelefonlariKategoriyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnemliTelefonAra_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnemliTelefonAra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnemliTelefonAra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnemliTelefonAraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_BolgeleriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:BolgeleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_BolgeleriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BolgeleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NobetciEczaneleriBolgeyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:NobetciEczaneleriBolgeyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NobetciEczaneleriBolgeyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NobetciEczaneleriBolgeyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TumNobetciEczaneleriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:TumNobetciEczaneleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TumNobetciEczaneleriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TumNobetciEczaneleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NoktayaEnYakinNobetciEczaneyiGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:NoktayaEnYakinNobetciEczaneyiGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NoktayaEnYakinNobetciEczaneyiGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NoktayaEnYakinNobetciEczaneyiGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EsrefpasaTahlilSonuclariniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:EsrefpasaTahlilSonuclariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EsrefpasaTahlilSonuclariniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EsrefpasaTahlilSonuclariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EsrefpasaTahlilSonucunuGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:EsrefpasaTahlilSonucunuGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EsrefpasaTahlilSonucunuGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EsrefpasaTahlilSonucunuGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EtkinlikleriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:EtkinlikleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EtkinlikleriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EtkinlikleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EtkinlikGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:EtkinlikGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EtkinlikGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EtkinlikGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UlasimKartiKaydet_InputMessage">
+    <wsdl:part name="parameters" element="tns:UlasimKartiKaydet" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UlasimKartiKaydet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UlasimKartiKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullanicininUlasimKartlariniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:KullanicininUlasimKartlariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullanicininUlasimKartlariniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KullanicininUlasimKartlariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UlasimKartiSil_InputMessage">
+    <wsdl:part name="parameters" element="tns:UlasimKartiSil" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UlasimKartiSil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UlasimKartiSilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UlasimKartiBakiyesiGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:UlasimKartiBakiyesiGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UlasimKartiBakiyesiGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UlasimKartiBakiyesiGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HaberleriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HaberleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HaberleriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HaberleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HaberGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:HaberGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HaberGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HaberGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DuyuruKategorileriniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:DuyuruKategorileriniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DuyuruKategorileriniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DuyuruKategorileriniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DuyurulariKategoriyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:DuyurulariKategoriyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DuyurulariKategoriyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DuyurulariKategoriyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DuyuruyuKategoriyeGoreGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:DuyuruyuKategoriyeGoreGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DuyuruyuKategoriyeGoreGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DuyuruyuKategoriyeGoreGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_BaskanOzgecmisMetniGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:BaskanOzgecmisMetniGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_BaskanOzgecmisMetniGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BaskanOzgecmisMetniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullaniciKaydet_InputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciKaydet" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullaniciKaydet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullaniciIptalEt_InputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciIptalEt" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullaniciIptalEt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciIptalEtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullaniciGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KullaniciGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KentKameralariGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:KentKameralariGetir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KentKameralariGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KentKameralariGetirResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="HatlariGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HatlariGetir" message="tns:IService1_HatlariGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HatlariGetirResponse" message="tns:IService1_HatlariGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HatDuraklariniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HatDuraklariniGetir" message="tns:IService1_HatDuraklariniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HatDuraklariniGetirResponse" message="tns:IService1_HatDuraklariniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HatDuraklariniGuzergahBaslangicBitisiGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HatDuraklariniGuzergahBaslangicBitisiGetir" message="tns:IService1_HatDuraklariniGuzergahBaslangicBitisiGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HatDuraklariniGuzergahBaslangicBitisiGetirResponse" message="tns:IService1_HatDuraklariniGuzergahBaslangicBitisiGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TarifeleriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TarifeleriGetir" message="tns:IService1_TarifeleriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TarifeleriGetirResponse" message="tns:IService1_TarifeleriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HareketSaatleriniHattaYoneTarifeyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HareketSaatleriniHattaYoneTarifeyeGoreGetir" message="tns:IService1_HareketSaatleriniHattaYoneTarifeyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HareketSaatleriniHattaYoneTarifeyeGoreGetirResponse" message="tns:IService1_HareketSaatleriniHattaYoneTarifeyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HareketSaatleriniHattaTarifeyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HareketSaatleriniHattaTarifeyeGoreGetir" message="tns:IService1_HareketSaatleriniHattaTarifeyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HareketSaatleriniHattaTarifeyeGoreGetirResponse" message="tns:IService1_HareketSaatleriniHattaTarifeyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DurakAra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DurakAra" message="tns:IService1_DurakAra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DurakAraResponse" message="tns:IService1_DurakAra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HatAra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HatAra" message="tns:IService1_HatAra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HatAraResponse" message="tns:IService1_HatAra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="YaklasanOtobusleriDuragaGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/YaklasanOtobusleriDuragaGoreGetir" message="tns:IService1_YaklasanOtobusleriDuragaGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/YaklasanOtobusleriDuragaGoreGetirResponse" message="tns:IService1_YaklasanOtobusleriDuragaGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NoktayaEnYakinDuraklariGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/NoktayaEnYakinDuraklariGetir" message="tns:IService1_NoktayaEnYakinDuraklariGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/NoktayaEnYakinDuraklariGetirResponse" message="tns:IService1_NoktayaEnYakinDuraklariGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BisimIstasyonlariGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/BisimIstasyonlariGetir" message="tns:IService1_BisimIstasyonlariGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/BisimIstasyonlariGetirResponse" message="tns:IService1_BisimIstasyonlariGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MetroSeferSaatleriniTarifeyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MetroSeferSaatleriniTarifeyeGoreGetir" message="tns:IService1_MetroSeferSaatleriniTarifeyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MetroSeferSaatleriniTarifeyeGoreGetirResponse" message="tns:IService1_MetroSeferSaatleriniTarifeyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MetroGunTipleriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MetroGunTipleriniGetir" message="tns:IService1_MetroGunTipleriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MetroGunTipleriniGetirResponse" message="tns:IService1_MetroGunTipleriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MetroIstasyonlariniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MetroIstasyonlariniGetir" message="tns:IService1_MetroIstasyonlariniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MetroIstasyonlariniGetirResponse" message="tns:IService1_MetroIstasyonlariniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IzbanIstasyonlariniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IzbanIstasyonlariniGetir" message="tns:IService1_IzbanIstasyonlariniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IzbanIstasyonlariniGetirResponse" message="tns:IService1_IzbanIstasyonlariniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IzbanSeferSaatleriniIstasyonaGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IzbanSeferSaatleriniIstasyonaGoreGetir" message="tns:IService1_IzbanSeferSaatleriniIstasyonaGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IzbanSeferSaatleriniIstasyonaGoreGetirResponse" message="tns:IService1_IzbanSeferSaatleriniIstasyonaGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VapurDonemleriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VapurDonemleriniGetir" message="tns:IService1_VapurDonemleriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VapurDonemleriniGetirResponse" message="tns:IService1_VapurDonemleriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VapurGunTipleriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VapurGunTipleriniGetir" message="tns:IService1_VapurGunTipleriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VapurGunTipleriniGetirResponse" message="tns:IService1_VapurGunTipleriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VapurIskeleleriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VapurIskeleleriniGetir" message="tns:IService1_VapurIskeleleriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VapurIskeleleriniGetirResponse" message="tns:IService1_VapurIskeleleriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VapurSeferleriniIskeleyeTarifeyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VapurSeferleriniIskeleyeTarifeyeGoreGetir" message="tns:IService1_VapurSeferleriniIskeleyeTarifeyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VapurSeferleriniIskeleyeTarifeyeGoreGetirResponse" message="tns:IService1_VapurSeferleriniIskeleyeTarifeyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ArabaliVapurSeferGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ArabaliVapurSeferGetir" message="tns:IService1_ArabaliVapurSeferGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ArabaliVapurSeferGetirResponse" message="tns:IService1_ArabaliVapurSeferGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IzsuPlanliSuKesintileriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IzsuPlanliSuKesintileriniGetir" message="tns:IService1_IzsuPlanliSuKesintileriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IzsuPlanliSuKesintileriniGetirResponse" message="tns:IService1_IzsuPlanliSuKesintileriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IzsuSuKesintiIlceleriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IzsuSuKesintiIlceleriniGetir" message="tns:IService1_IzsuSuKesintiIlceleriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IzsuSuKesintiIlceleriniGetirResponse" message="tns:IService1_IzsuSuKesintiIlceleriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IzsuArizaKaynakliSuKesintileriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IzsuArizaKaynakliSuKesintileriniGetir" message="tns:IService1_IzsuArizaKaynakliSuKesintileriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IzsuArizaKaynakliSuKesintileriniGetirResponse" message="tns:IService1_IzsuArizaKaynakliSuKesintileriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeneIzsuSuKesintiIlceleriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeneIzsuSuKesintiIlceleriniGetir" message="tns:IService1_DeneIzsuSuKesintiIlceleriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeneIzsuSuKesintiIlceleriniGetirResponse" message="tns:IService1_DeneIzsuSuKesintiIlceleriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HimKaydiniTakipNoGuvenlikKodunaGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HimKaydiniTakipNoGuvenlikKodunaGoreGetir" message="tns:IService1_HimKaydiniTakipNoGuvenlikKodunaGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HimKaydiniTakipNoGuvenlikKodunaGoreGetirResponse" message="tns:IService1_HimKaydiniTakipNoGuvenlikKodunaGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IletisimBilgileriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IletisimBilgileriniGetir" message="tns:IService1_IletisimBilgileriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IletisimBilgileriniGetirResponse" message="tns:IService1_IletisimBilgileriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnemliTelefonKategorileriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OnemliTelefonKategorileriniGetir" message="tns:IService1_OnemliTelefonKategorileriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OnemliTelefonKategorileriniGetirResponse" message="tns:IService1_OnemliTelefonKategorileriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnemliTelefonlariKategoriyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OnemliTelefonlariKategoriyeGoreGetir" message="tns:IService1_OnemliTelefonlariKategoriyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OnemliTelefonlariKategoriyeGoreGetirResponse" message="tns:IService1_OnemliTelefonlariKategoriyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnemliTelefonAra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OnemliTelefonAra" message="tns:IService1_OnemliTelefonAra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OnemliTelefonAraResponse" message="tns:IService1_OnemliTelefonAra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BolgeleriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/BolgeleriGetir" message="tns:IService1_BolgeleriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/BolgeleriGetirResponse" message="tns:IService1_BolgeleriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NobetciEczaneleriBolgeyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/NobetciEczaneleriBolgeyeGoreGetir" message="tns:IService1_NobetciEczaneleriBolgeyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/NobetciEczaneleriBolgeyeGoreGetirResponse" message="tns:IService1_NobetciEczaneleriBolgeyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TumNobetciEczaneleriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TumNobetciEczaneleriGetir" message="tns:IService1_TumNobetciEczaneleriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TumNobetciEczaneleriGetirResponse" message="tns:IService1_TumNobetciEczaneleriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NoktayaEnYakinNobetciEczaneyiGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/NoktayaEnYakinNobetciEczaneyiGetir" message="tns:IService1_NoktayaEnYakinNobetciEczaneyiGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/NoktayaEnYakinNobetciEczaneyiGetirResponse" message="tns:IService1_NoktayaEnYakinNobetciEczaneyiGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EsrefpasaTahlilSonuclariniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EsrefpasaTahlilSonuclariniGetir" message="tns:IService1_EsrefpasaTahlilSonuclariniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EsrefpasaTahlilSonuclariniGetirResponse" message="tns:IService1_EsrefpasaTahlilSonuclariniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EsrefpasaTahlilSonucunuGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EsrefpasaTahlilSonucunuGetir" message="tns:IService1_EsrefpasaTahlilSonucunuGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EsrefpasaTahlilSonucunuGetirResponse" message="tns:IService1_EsrefpasaTahlilSonucunuGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EtkinlikleriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EtkinlikleriGetir" message="tns:IService1_EtkinlikleriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EtkinlikleriGetirResponse" message="tns:IService1_EtkinlikleriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EtkinlikGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EtkinlikGetir" message="tns:IService1_EtkinlikGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EtkinlikGetirResponse" message="tns:IService1_EtkinlikGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UlasimKartiKaydet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UlasimKartiKaydet" message="tns:IService1_UlasimKartiKaydet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UlasimKartiKaydetResponse" message="tns:IService1_UlasimKartiKaydet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KullanicininUlasimKartlariniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KullanicininUlasimKartlariniGetir" message="tns:IService1_KullanicininUlasimKartlariniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KullanicininUlasimKartlariniGetirResponse" message="tns:IService1_KullanicininUlasimKartlariniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UlasimKartiSil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UlasimKartiSil" message="tns:IService1_UlasimKartiSil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UlasimKartiSilResponse" message="tns:IService1_UlasimKartiSil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UlasimKartiBakiyesiGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UlasimKartiBakiyesiGetir" message="tns:IService1_UlasimKartiBakiyesiGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UlasimKartiBakiyesiGetirResponse" message="tns:IService1_UlasimKartiBakiyesiGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HaberleriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HaberleriGetir" message="tns:IService1_HaberleriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HaberleriGetirResponse" message="tns:IService1_HaberleriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HaberGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HaberGetir" message="tns:IService1_HaberGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HaberGetirResponse" message="tns:IService1_HaberGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DuyuruKategorileriniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DuyuruKategorileriniGetir" message="tns:IService1_DuyuruKategorileriniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DuyuruKategorileriniGetirResponse" message="tns:IService1_DuyuruKategorileriniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DuyurulariKategoriyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DuyurulariKategoriyeGoreGetir" message="tns:IService1_DuyurulariKategoriyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DuyurulariKategoriyeGoreGetirResponse" message="tns:IService1_DuyurulariKategoriyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DuyuruyuKategoriyeGoreGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DuyuruyuKategoriyeGoreGetir" message="tns:IService1_DuyuruyuKategoriyeGoreGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DuyuruyuKategoriyeGoreGetirResponse" message="tns:IService1_DuyuruyuKategoriyeGoreGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BaskanOzgecmisMetniGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/BaskanOzgecmisMetniGetir" message="tns:IService1_BaskanOzgecmisMetniGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/BaskanOzgecmisMetniGetirResponse" message="tns:IService1_BaskanOzgecmisMetniGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciKaydet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KullaniciKaydet" message="tns:IService1_KullaniciKaydet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KullaniciKaydetResponse" message="tns:IService1_KullaniciKaydet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciIptalEt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KullaniciIptalEt" message="tns:IService1_KullaniciIptalEt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KullaniciIptalEtResponse" message="tns:IService1_KullaniciIptalEt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KullaniciGetir" message="tns:IService1_KullaniciGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KullaniciGetirResponse" message="tns:IService1_KullaniciGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KentKameralariGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KentKameralariGetir" message="tns:IService1_KentKameralariGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KentKameralariGetirResponse" message="tns:IService1_KentKameralariGetir_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IService1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HatlariGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HatlariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HatDuraklariniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HatDuraklariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HatDuraklariniGuzergahBaslangicBitisiGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HatDuraklariniGuzergahBaslangicBitisiGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarifeleriGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/TarifeleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HareketSaatleriniHattaYoneTarifeyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HareketSaatleriniHattaYoneTarifeyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HareketSaatleriniHattaTarifeyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HareketSaatleriniHattaTarifeyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DurakAra">
+      <soap:operation soapAction="http://tempuri.org/IService1/DurakAra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HatAra">
+      <soap:operation soapAction="http://tempuri.org/IService1/HatAra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YaklasanOtobusleriDuragaGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/YaklasanOtobusleriDuragaGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoktayaEnYakinDuraklariGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/NoktayaEnYakinDuraklariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BisimIstasyonlariGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/BisimIstasyonlariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetroSeferSaatleriniTarifeyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/MetroSeferSaatleriniTarifeyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetroGunTipleriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/MetroGunTipleriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetroIstasyonlariniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/MetroIstasyonlariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IzbanIstasyonlariniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/IzbanIstasyonlariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IzbanSeferSaatleriniIstasyonaGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/IzbanSeferSaatleriniIstasyonaGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VapurDonemleriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/VapurDonemleriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VapurGunTipleriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/VapurGunTipleriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VapurIskeleleriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/VapurIskeleleriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VapurSeferleriniIskeleyeTarifeyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/VapurSeferleriniIskeleyeTarifeyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArabaliVapurSeferGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/ArabaliVapurSeferGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IzsuPlanliSuKesintileriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/IzsuPlanliSuKesintileriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IzsuSuKesintiIlceleriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/IzsuSuKesintiIlceleriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IzsuArizaKaynakliSuKesintileriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/IzsuArizaKaynakliSuKesintileriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeneIzsuSuKesintiIlceleriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeneIzsuSuKesintiIlceleriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HimKaydiniTakipNoGuvenlikKodunaGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HimKaydiniTakipNoGuvenlikKodunaGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IletisimBilgileriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/IletisimBilgileriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnemliTelefonKategorileriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/OnemliTelefonKategorileriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnemliTelefonlariKategoriyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/OnemliTelefonlariKategoriyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnemliTelefonAra">
+      <soap:operation soapAction="http://tempuri.org/IService1/OnemliTelefonAra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BolgeleriGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/BolgeleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NobetciEczaneleriBolgeyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/NobetciEczaneleriBolgeyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TumNobetciEczaneleriGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/TumNobetciEczaneleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoktayaEnYakinNobetciEczaneyiGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/NoktayaEnYakinNobetciEczaneyiGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EsrefpasaTahlilSonuclariniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/EsrefpasaTahlilSonuclariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EsrefpasaTahlilSonucunuGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/EsrefpasaTahlilSonucunuGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EtkinlikleriGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/EtkinlikleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EtkinlikGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/EtkinlikGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UlasimKartiKaydet">
+      <soap:operation soapAction="http://tempuri.org/IService1/UlasimKartiKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullanicininUlasimKartlariniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/KullanicininUlasimKartlariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UlasimKartiSil">
+      <soap:operation soapAction="http://tempuri.org/IService1/UlasimKartiSil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UlasimKartiBakiyesiGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/UlasimKartiBakiyesiGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HaberleriGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HaberleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HaberGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/HaberGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuyuruKategorileriniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/DuyuruKategorileriniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuyurulariKategoriyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/DuyurulariKategoriyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuyuruyuKategoriyeGoreGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/DuyuruyuKategoriyeGoreGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaskanOzgecmisMetniGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/BaskanOzgecmisMetniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciKaydet">
+      <soap:operation soapAction="http://tempuri.org/IService1/KullaniciKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciIptalEt">
+      <soap:operation soapAction="http://tempuri.org/IService1/KullaniciIptalEt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/KullaniciGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KentKameralariGetir">
+      <soap:operation soapAction="http://tempuri.org/IService1/KentKameralariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="https://servisler.izmir.bel.tr/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

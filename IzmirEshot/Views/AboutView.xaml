@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="IzmirEshot.Views.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IzmirEshot.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/AutoSuggestBoxStyle1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid.Background>
+            <SolidColorBrush Color="#262e41"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.Background>
+                <SolidColorBrush Color="#262e41"/>
+            </Grid.Background>
+
+            <AppBarButton x:Name="backButton" Foreground="#FFFFFF" Margin="-10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Click="backButton_Click">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/back.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+            <Image Source="ms-appx:///Assets/logo.png" Margin="8" Stretch="Uniform"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.Background>
+                <SolidColorBrush Color="#ffffff"/>
+            </Grid.Background>
+
+            <WebView x:Name="webView"/>
+
+            <ProgressBar x:Name="progress" Height="30" Background="Transparent" Foreground="#dc1f33" VerticalAlignment="Center" />
+
+        </Grid>
+
+    </Grid>
+
+</Page>
