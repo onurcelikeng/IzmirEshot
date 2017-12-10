@@ -3,42 +3,46 @@
 
 ## Mobile Images
 <div>
-  <img width="200" src="/ScreenShots/m1.jpeg">
-  <img width="200" src="/ScreenShots/m2.jpeg">
-  <img width="200" src="/ScreenShots/m3.jpeg">
-  <img width="200" src="/ScreenShots/m4.jpeg">
-  <img width="200" src="/ScreenShots/m5.jpeg">
-  <img width="200" src="/ScreenShots/m6.jpeg">
+  <img width="200" src="/ScreenShots/m1.png">
+  <img width="200" src="/ScreenShots/m2.png">
+  <img width="200" src="/ScreenShots/m3.png">
+  <img width="200" src="/ScreenShots/m4.png">
+  <img width="200" src="/ScreenShots/m5.png">
+  <img width="200" src="/ScreenShots/m6.png">
+  <img width="200" src="/ScreenShots/m7.png">
 </div>
 
 ## Desktop Images
 <div>
-  <img width="300" src="/ScreenShots/d1.jpeg">
-  <img width="300" src="/ScreenShots/d2.jpeg">
-  <img width="300" src="/ScreenShots/d3.jpeg">
-  <img width="300" src="/ScreenShots/d4.jpeg">
-  <img width="300" src="/ScreenShots/d5.jpeg">
-  <img width="300" src="/ScreenShots/d6.jpeg">
+  <img width="300" src="/ScreenShots/d1.png">
+  <img width="300" src="/ScreenShots/d2.png">
+  <img width="300" src="/ScreenShots/d3.png">
+  <img width="300" src="/ScreenShots/d4.png">
+  <img width="300" src="/ScreenShots/d5.png">
+  <img width="300" src="/ScreenShots/d6.png">
+  <img width="300" src="/ScreenShots/d7.png">
 </div>
 
 ## xBox One Images
 <div>
-  <img width="300" src="/ScreenShots/x1.jpeg">
-  <img width="300" src="/ScreenShots/x2.jpeg">
-  <img width="300" src="/ScreenShots/x3.jpeg">
-  <img width="300" src="/ScreenShots/x4.jpeg">
-  <img width="300" src="/ScreenShots/x5.jpeg">
-  <img width="300" src="/ScreenShots/x6.jpeg">
+  <img width="300" src="/ScreenShots/x1.png">
+  <img width="300" src="/ScreenShots/x2.png">
+  <img width="300" src="/ScreenShots/x3.png">
+  <img width="300" src="/ScreenShots/x4.png">
+  <img width="300" src="/ScreenShots/x5.png">
+  <img width="300" src="/ScreenShots/x6.png">
+  <img width="300" src="/ScreenShots/x7.png">
 </div>
 
 ## Hololens Images
 <div>
-  <img width="300" src="/ScreenShots/h1.jpeg">
-  <img width="300" src="/ScreenShots/h2.jpeg">
-  <img width="300" src="/ScreenShots/h3.jpeg">
-  <img width="300" src="/ScreenShots/h4.jpeg">
-  <img width="300" src="/ScreenShots/h5.jpeg">
-  <img width="300" src="/ScreenShots/h6.jpeg">
+  <img width="300" src="/ScreenShots/h1.png">
+  <img width="300" src="/ScreenShots/h2.png">
+  <img width="300" src="/ScreenShots/h3.png">
+  <img width="300" src="/ScreenShots/h4.png">
+  <img width="300" src="/ScreenShots/h5.png">
+  <img width="300" src="/ScreenShots/h6.png">
+  <img width="300" src="/ScreenShots/h7.png">
 </div>
 
 ## Requirement
