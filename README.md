@@ -1,5 +1,5 @@
 # Izmir Eshot
->Transportation application for Izmir, Turkey
+>Transportation mobile, desktop, xbox one and hololens application for Izmir, Turkey
 
 ## Mobile Images
 <div>
